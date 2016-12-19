@@ -1,0 +1,54 @@
+.user-data {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 400px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .user-data .user-data-col-titles {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: auto;
+    margin-right: 4px;
+    font-weight: bold; }
+  .user-data .user-data-col-value {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: auto; }
+  .user-data .user-data-company {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: auto;
+    margin-top: 10px; }
+
+.list-table {
+  display: table;
+  width: 98%;
+  margin: auto;
+  padding: 10px;
+  table-layout: fixed; }
+
+.list-row {
+  display: table-row; }
+
+.list-cell {
+  display: table-cell;
+  width: 160px;
+  padding: 8px;
+  vertical-align: middle;
+  border-bottom: 1px solid #e5e5e5 !important;
+  font-weight: bold; }
+  .list-cell:nth-child(even) {
+    width: auto;
+    font-weight: normal; }
+
+.form-input {
+  width: 100%;
+  margin-bottom: 4px; }

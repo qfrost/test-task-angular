@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app='application'>
+    <head>
+        <meta charset="utf-8">
+        <script src="./bower_components/angular/angular.js" charset="utf-8"></script>
+        <script src="./bower_components/angular-animate/angular-animate.js" charset="utf-8"></script>
+        <script src="./bower_components/angular-messages/angular-messages.js" charset="utf-8"></script>
+        <script src="./bower_components/angular-aria/angular-aria.js" charset="utf-8"></script>
+        <script src="./bower_components/angular-material/angular-material.js" charset="utf-8"></script>
+        <script src="./js/application.module.js" charset="utf-8"></script>
+        <script src="./js/services/geolocation.service.js" charset="utf-8"></script>
+        <script src="./js/controllers/users.controller.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <title>Angular Task</title>
+    </head>
+    <body ng-controller="UsersController as UsersController">
+        <md-toolbar class="md-menu-toolbar" style="border: 1px solid #e5e5e5;" md-scroll-shrink>
+            <div class="md-toolbar-tools">
+                <md-input-container>
+                    <label>Search</label>
+                    <input ng-model="UsersController.searchFilter">
+                </md-input-container>
+                <md-input-container>
+                  <label>Search options</label>
+                  <md-select ng-model="UsersController.selectedSearchOption">
+                    <md-option ng-repeat="option in UsersController.searchOptions" ng-value="option">
+                      {{option | capitalize}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container>
+                  <label>Sort options</label>
+                  <md-select ng-model="UsersController.sortingField">
+                    <md-option ng-repeat="option in UsersController.sortOptions" ng-value="option">
+                      {{(option == 'address.street') ? "street" : (option == 'company.name') ? 'company' : option | capitalize}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+                <md-switch class="md-primary" md-no-ink aria-label="Switch sort" ng-model="UsersController.sortMode">
+                    Sort {{UsersController.sortMode == false ? 'descending' : 'ascending'}} order
+                </md-switch>
+                <md-button max-height="40px" class="md-primary md-raised" ng-click="UsersController.addUser($event)">
+                    Add user
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-content max-width="100%"
+                    max-height="100%"
+                    layout-align="start start"
+                    layout="row"
+                    layout-padding
+                    layout-wrap>
+
+                <md-card ng-repeat='user in UsersController.users | orderBy: UsersController.sort() track by $index'
+                         ng-hide='UsersController.filterItems(user)'>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{user.name}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div class="user-data">
+                            <div class="user-data-col-titles">
+                                <div>
+                                    Username
+                                </div>
+                                <div>
+                                    Phone
+                                </div>
+                                <div>
+                                    E-mail
+                                </div>
+                                <div>
+                                    City
+                                </div>
+                                <div>
+                                    Street
+                                </div>
+                                <div>
+                                    Suite
+                                </div>
+                                <div>
+                                    Zip-code
+                                </div>
+                                <div>
+                                    Distance
+                                </div>
+                                <div>
+                                    Website
+                                </div>
+                            </div>
+                            <div class="user-data-col-value">
+                                <div>
+                                    :
+                                    {{user.username}}
+                                </div>
+                                <div>
+                                    : {{user.phone}}
+                                </div>
+                                <div>
+                                    : {{user.email}}
+                                </div>
+                                <div>
+                                    : {{user.address.city}}
+                                </div>
+                                <div>
+                                    : {{user.address.street}}
+                                </div>
+                                <div>
+                                    : {{user.address.suite}}
+                                </div>
+                                <div>
+                                    : {{user.address.zipcode}}
+                                </div>
+                                <div>
+                                    : {{UsersController.distances[user.id] | number}} Km
+                                </div>
+                                <div>
+                                    : <a href="{{'http://' + user.website}}">{{user.website}}</a>
+                                </div>
+                            </div>
+                            <div class="user-data-company">
+                                <div>
+                                    <b>Company :</b> {{user.company.name}}
+                                </div>
+                                <div>
+                                    {{user.company.catchPhrase}}
+                                </div>
+                                <div>
+                                    {{user.company.bs}}
+                                </div>
+                            </div>
+                        </div>
+                    </md-card-content>
+            </md-content>
+        </body>
+    </html>

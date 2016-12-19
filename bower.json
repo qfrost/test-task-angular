@@ -1,0 +1,23 @@
+{
+  "name": "angular-task",
+  "authors": [
+    "Andrew Stepaniuk <styopa102@gmail.com>"
+  ],
+  "description": "lerning",
+  "main": "./js/application.js",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-material": "^1.1.1",
+    "angular-messages": "^1.6.0"
+  }
+}

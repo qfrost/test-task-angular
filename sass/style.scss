@@ -1,0 +1,58 @@
+.user-data {
+  display       : flex;
+  flex-direction: row;
+  width         : 400px;
+  flex-wrap     : wrap;
+
+  .user-data-col-titles {
+    display       : flex;
+    flex-direction: column;
+    width         : auto;
+    margin-right  : 4px;
+    font-weight   : bold;
+  }
+
+  .user-data-col-value {
+    display       : flex;
+    flex-direction: column;
+    width         : auto;
+  }
+
+  .user-data-company {
+    display       : flex;
+    flex-direction: column;
+    width         : auto;
+    margin-top    : 10px;
+  }
+}
+
+.list-table {
+  display     : table;
+  width       : 98%;
+  margin      : auto;
+  padding     : 10px;
+  table-layout: fixed;
+}
+
+.list-row {
+  display: table-row;
+}
+
+.list-cell {
+  display       : table-cell;
+  width         : 160px;
+  padding       : 8px;
+  vertical-align: middle;
+  border-bottom : 1px solid #e5e5e5 !important;
+  font-weight   : bold;
+
+  &:nth-child(even) {
+    width      : auto;
+    font-weight: normal;
+  }
+}
+
+.form-input {
+  width: 100%;
+  margin-bottom: 4px;
+}

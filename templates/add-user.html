@@ -1,0 +1,188 @@
+<md-dialog aria-label="Add user">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Adding user</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <form>
+            </form>
+
+            <form role='form' name="userData" novalidate>
+                <div class="list-table">
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Name
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input name="name" aria-label="input-field" required ng-model="user.name">
+                                <div ng-messages="userData.name.$error">
+                                    <div ng-message="required">Name is required</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Username
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input name="username" aria-label="input-field" required ng-model="user.username">
+                                <div ng-messages="userData.username.$error">
+                                    <div ng-message="required">Username is required</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            E-mail
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input name="email" aria-label="input-field" required ng-model="user.email">
+                                <!-- ng-pattern="^[a-zA-Z@a-z\\.(a-z){3}]$"  wtf??? -->
+                                <div ng-messages="userData.email.$error">
+                                    <div ng-message="required">Email is required</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Phone
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input name="phone" aria-label="input-field" required  ng-model="user.phone">
+                                <!-- ng-pattern="/^\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$/" -->
+                                <div ng-messages="userData.phone.$error">
+                                    <div ng-message="pattern">(###) ###-#### - Please enter a valid SSN.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Street
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.address.street">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Suite
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.address.suite">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            City
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.address.city">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Zip-code
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.address.zipcode">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Latitude
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.address.geo.lat">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Longtitude
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.address.geo.lng">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Website
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input name="website" aria-label="input-field" ng-model="user.website">
+                                <!-- ng-pattern="^[a-zA-Z\\.a-z]$"  -->
+                                <div ng-messages="userData.website.$error">
+                                    <div ng-message="required">Website is incorrect</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            Company
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input name="company" aria-label="input-field" required ng-model="user.company.name">
+                                <div ng-messages="userData.company.$error">
+                                    <div ng-message="required">Company name is required</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            CatchPhrase
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.company.catchPhrase">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="list-row">
+                        <div class="list-cell">
+                            BS
+                        </div>
+                        <div class="list-cell">
+                            <md-input-container class="form-input">
+                                <input aria-label="input-field" ng-model="user.company.bs">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-click="addUser()">
+                Add
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
